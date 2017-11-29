@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>职位</th>
+      <th>简历数量</th>
       <th>最低薪资</th>
       <th>最高薪资</th>
       <th>联系方式</th>
@@ -18,10 +19,11 @@
           <%= render_is_hidden_status(job) %>
           <%= link_to(job.title, admin_job_path(job)) %>
         </td>
+        <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
         <td><%= job.wage_lower %></td>
         <td><%= job.wage_upper %></td>
         <td><%= job.contact %></td>
-        <td><%= job.updated_at %></td>
+        <td><%= job.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td>
           <% if job.is_hidden %>
             <%= link_to("显示", publish_admin_job_path(job), method: :post, class:"btn btn-success btn-xs") %>

@@ -1,0 +1,4 @@
+<h2>投递：<%= @job.title %>的所有简历</h2>
+
+<br>
+<%= render :partial=>"index_resume", :collection=>@resumes, :as=>:resume %>
