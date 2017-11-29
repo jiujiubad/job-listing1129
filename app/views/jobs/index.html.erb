@@ -1,0 +1,21 @@
+<h2>所有职位</h2>
+<%= link_to("新增职位", new_job_path, class:"btn btn-success btm.sm") %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>职位</th>
+      <th>描述</th>
+      <th>更新时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to(job.title, job_path(job)) %></td>
+        <td><%= job.description %></td>
+        <td><%= job.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
