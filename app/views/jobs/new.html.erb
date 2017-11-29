@@ -3,5 +3,9 @@
 <%= simple_form_for @job do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :wage_lower %>
+  <%= f.input :wage_upper %>
+  <%= f.input :contact %>
+  <%= f.input :is_hidden %>
   <%= f.submit "保存", data:{disable_with:"正在保存.."} %>
 <% end %>
