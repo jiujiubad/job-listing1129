@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
+  has_many :resumes
 
   validates :title, presence: true
   validates :wage_upper, numericality:{greater_than: 0}, presence: true
