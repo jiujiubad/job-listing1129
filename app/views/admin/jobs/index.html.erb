@@ -1,0 +1,25 @@
+<h2>所有职位</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>职位</th>
+      <th>描述</th>
+      <th>更新时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to(job.title, admin_job_path(job)) %></td>
+        <td><%= job.description %></td>
+        <td><%= job.updated_at %></td>
+        <td>
+          <%= link_to("编辑", edit_admin_job_path(job), class:"btn btn-info btn-xs") %>
+          <%= link_to("删除", admin_job_path(job), method: :delete, class:"btn btn-danger btn-xs", data:{confirm:"确认删除？"}) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

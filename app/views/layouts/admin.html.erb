@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobListing1129</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "common/navbar" %>
+    <%= render "common/flashes" %>
+
+    <div class="col-md-2">
+      <%= link_to("所有职位", admin_jobs_path, class:"btn btn-info btn-lg btn-block") %>
+      <%= link_to("新增职位", new_admin_job_path, class:"btn btn-success btn-lg btn-block") %>
+    </div>
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+    
+    <%= render "common/footer" %>
+  </body>
+</html>
