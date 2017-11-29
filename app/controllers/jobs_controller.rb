@@ -2,7 +2,18 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @jobs = Job.where(is_hidden: false).order("id DESC")
+    @jobs = case params[:order]
+            when "by_lower_up"
+              Job.where(is_hidden: false).order("wage_lower ASC")
+            when "by_lower_down"
+              Job.where(is_hidden: false).order("wage_lower DESC")
+            when "by_upper_up"
+              Job.where(is_hidden: false).order("wage_upper ASC")
+            when "by_upper_down"
+              Job.where(is_hidden: false).order("wage_upper DESC")
+            else
+              Job.where(is_hidden: false).recent
+            end
   end
 
   def show
